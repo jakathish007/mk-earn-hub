@@ -3,45 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>MK Earn Hub</title>
-
-  <!-- Monetag SDK -->
   <script src='//libtl.com/sdk.js' data-zone='11700556' data-sdk='show_11700556'></script>
-
-  <!-- Telegram Mini App -->
   <script src="https://telegram.org/js/telegram-web-app.js"></script>
-
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
-    body { background: #f4f7ff; color: #172033; min-height: 100vh; }
-    .app { max-width: 500px; margin: auto; padding-bottom: 90px; }
-    .header { background: linear-gradient(135deg, #071a4d, #1467e8); color: white; padding: 28px 20px 35px; border-radius: 0 0 28px 28px; }
-    .logo { display: flex; align-items: center; gap: 12px; }
-    .logo-circle { width: 52px; height: 52px; border-radius: 50%; background: white; color: #1268e8; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; }
-    .logo h1 { font-size: 23px; }
-    .logo p { font-size: 12px; opacity: .85; margin-top: 3px; }
-    .balance { background: rgba(255,255,255,.14); margin-top: 25px; padding: 18px; border-radius: 18px; }
-    .balance small { opacity: .8; }
-    .balance h2 { font-size: 30px; margin-top: 5px; }
-    .content { padding: 20px; }
-    .section-title { font-size: 19px; margin-bottom: 13px; }
-    .card { background: white; border-radius: 18px; padding: 18px; margin-bottom: 14px; box-shadow: 0 5px 20px rgba(20,50,100,.07); }
-    .card-row { display: flex; align-items: center; gap: 14px; }
-    .icon { width: 46px; height: 46px; border-radius: 14px; background: #eaf2ff; display: flex; align-items: center; justify-content: center; font-size: 22px; }
-    .card h3 { font-size: 16px; }
-    .card p { font-size: 13px; color: #687386; margin-top: 4px; }
-    button { width: 100%; border: none; padding: 13px; border-radius: 12px; background: #1769e8; color: white; font-size: 15px; font-weight: bold; cursor: pointer; margin-top: 14px; }
-    button:active { transform: scale(.98); }
-    .secondary { background: #eaf2ff; color: #1769e8; }
-    .notice { background: #fff8df; border-radius: 15px; padding: 14px; font-size: 13px; color: #765d00; margin-bottom: 18px; }
-    .ad-box { background: white; border: 1px dashed #b9c5d8; border-radius: 18px; padding: 25px 15px; text-align: center; color: #718096; margin-bottom: 18px; }
-    .ad-box strong { display: block; color: #26364d; margin-bottom: 5px; }
-    .bottom-nav { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 500px; background: white; border-top: 1px solid #e7ebf2; display: flex; justify-content: space-around; padding: 12px 5px; }
-    .nav-btn { background: none; color: #69758a; margin: 0; padding: 5px; font-size: 12px; width: 30%; }
-    .nav-btn.active { color: #1769e8; }
-    .hidden { display: none; }
-    .success { color: #159447; font-weight: bold; margin-top: 10px; text-align: center; }
+    *{box-sizing:border-box;margin:0;padding:0;font-family:Arial,sans-serif}
+    body{background:#f4f7ff;color:#172033;min-height:100vh}
+    .app{max-width:500px;margin:auto;padding-bottom:90px}
+    .header{background:linear-gradient(135deg,#071a4d,#1467e8);color:#fff;padding:28px 20px 35px;border-radius:0 0 28px 28px}
+    .logo{display:flex;align-items:center;gap:12px}.logo-circle{width:52px;height:52px;border-radius:50%;background:#fff;color:#1268e8;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:18px}.logo h1{font-size:23px}.logo p{font-size:12px;opacity:.85;margin-top:3px}
+    .balance{background:rgba(255,255,255,.14);margin-top:25px;padding:18px;border-radius:18px}.balance small{opacity:.8}.balance h2{font-size:30px;margin-top:5px}
+    .content{padding:20px}.section-title{font-size:19px;margin-bottom:13px}.card{background:#fff;border-radius:18px;padding:18px;margin-bottom:14px;box-shadow:0 5px 20px rgba(20,50,100,.07)}
+    .card-row{display:flex;align-items:center;gap:14px}.icon{width:46px;height:46px;border-radius:14px;background:#eaf2ff;display:flex;align-items:center;justify-content:center;font-size:22px}.card h3{font-size:16px}.card p{font-size:13px;color:#687386;margin-top:4px}
+    button{width:100%;border:none;padding:13px;border-radius:12px;background:#1769e8;color:#fff;font-size:15px;font-weight:bold;cursor:pointer;margin-top:14px}.secondary{background:#eaf2ff;color:#1769e8}.notice{background:#fff8df;border-radius:15px;padding:14px;font-size:13px;color:#765d00;margin-bottom:18px}
+    .ad-box{background:#fff;border:1px dashed #b9c5d8;border-radius:18px;padding:25px 15px;text-align:center;color:#718096;margin-bottom:18px}.ad-box strong{display:block;color:#26364d;margin-bottom:5px}.status{font-size:12px;margin-top:10px;color:#687386;text-align:center}.success{color:#159447;font-weight:bold;margin-top:10px;text-align:center}.hidden{display:none}
+    .bottom-nav{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:500px;background:#fff;border-top:1px solid #e7ebf2;display:flex;justify-content:space-around;padding:12px 5px}.nav-btn{background:none;color:#69758a;margin:0;padding:5px;font-size:12px;width:30%}.nav-btn.active{color:#1769e8}
   </style>
 </head>
 <body>
@@ -53,17 +29,21 @@
 
   <div id="home" class="content">
     <div class="notice">🎯 Complete available tasks and use supported features to earn.</div>
-    <div class="ad-box"><strong>Advertisement</strong><span>Ad space will be connected here.</span></div>
+    <div class="ad-box"><strong>Advertisement</strong><span>Monetag ad will open when you tap Watch Advertisement.</span><div id="adStatus" class="status">Ready</div></div>
     <h2 class="section-title">Earn Rewards</h2>
+
     <div class="card">
       <div class="card-row"><div class="icon">🎁</div><div><h3>Daily Reward</h3><p>Claim your daily reward.</p></div></div>
       <button onclick="dailyReward()">Claim Daily Reward</button>
       <div id="rewardMessage"></div>
     </div>
+
     <div class="card">
-      <div class="card-row"><div class="icon">📺</div><div><h3>Watch & Earn</h3><p>Watch a supported advertisement to earn.</p></div></div>
+      <div class="card-row"><div class="icon">📺</div><div><h3>Watch &amp; Earn</h3><p>Watch a supported advertisement to earn.</p></div></div>
       <button onclick="watchAd()">Watch Advertisement</button>
+      <div id="adRewardMessage"></div>
     </div>
+
     <div class="card">
       <div class="card-row"><div class="icon">📋</div><div><h3>Tasks</h3><p>Complete available tasks.</p></div></div>
       <button class="secondary" onclick="openTasks()">View Tasks</button>
@@ -79,66 +59,30 @@
   <div id="profile" class="content hidden">
     <h2 class="section-title">Profile</h2>
     <div class="card"><h3 id="userName">Telegram User</h3><p id="userInfo">Your Telegram account information will appear here.</p></div>
-    <div class="card"><h3>💰 Current Balance</h3><p style="margin-top:8px;">$<span id="profileBalance">0.00</span></p></div>
+    <div class="card"><h3>💰 Current Balance</h3><p style="margin-top:8px">$<span id="profileBalance">0.00</span></p></div>
   </div>
 
   <div class="bottom-nav">
-    <button class="nav-btn active" onclick="showPage('home', this)">🏠<br>Home</button>
-    <button class="nav-btn" onclick="showPage('tasks', this)">📋<br>Tasks</button>
-    <button class="nav-btn" onclick="showPage('profile', this)">👤<br>Profile</button>
+    <button class="nav-btn active" onclick="showPage('home',this)">🏠<br>Home</button>
+    <button class="nav-btn" onclick="showPage('tasks',this)">📋<br>Tasks</button>
+    <button class="nav-btn" onclick="showPage('profile',this)">👤<br>Profile</button>
   </div>
 </div>
 
 <script>
-  const tg = window.Telegram.WebApp;
-  tg.ready();
-  tg.expand();
-
-  if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
-    const user = tg.initDataUnsafe.user;
-    const fullName = (user.first_name || "") + " " + (user.last_name || "");
-    document.getElementById("userName").innerText = fullName.trim() || "Telegram User";
-    document.getElementById("userInfo").innerText = "Telegram ID: " + user.id;
+  const tg=window.Telegram.WebApp; tg.ready(); tg.expand();
+  if(tg.initDataUnsafe&&tg.initDataUnsafe.user){const u=tg.initDataUnsafe.user;document.getElementById('userName').innerText=((u.first_name||'')+' '+(u.last_name||'')).trim()||'Telegram User';document.getElementById('userInfo').innerText='Telegram ID: '+u.id}
+  let balance=0;
+  function updateBalance(){document.getElementById('balance').innerText=balance.toFixed(2);document.getElementById('profileBalance').innerText=balance.toFixed(2)}
+  function dailyReward(){const m=document.getElementById('rewardMessage');m.className='success';m.innerText='Daily reward is not active yet. Backend setup is required.';if(tg.HapticFeedback)tg.HapticFeedback.notificationOccurred('warning')}
+  function watchAd(){const status=document.getElementById('adStatus');const msg=document.getElementById('adRewardMessage');status.innerText='Loading advertisement…';msg.innerText='';
+    if(typeof show_11700556==='function'){
+      Promise.resolve(show_11700556()).then(()=>{status.innerText='Advertisement finished';msg.className='success';msg.innerText='Ad completed. Reward is not credited yet because the secure backend is not connected.';if(tg.HapticFeedback)tg.HapticFeedback.notificationOccurred('success')}).catch(()=>{status.innerText='Ad unavailable';msg.className='status';msg.innerText='Advertisement could not be completed. Please try again later.'})
+    }else{status.innerText='Ad script still loading';msg.className='status';msg.innerText='Please wait a moment and try again.'}
   }
-
-  let balance = 0;
-  function updateBalance() {
-    document.getElementById("balance").innerText = balance.toFixed(2);
-    document.getElementById("profileBalance").innerText = balance.toFixed(2);
-  }
-
-  function dailyReward() {
-    const message = document.getElementById("rewardMessage");
-    message.className = "success";
-    message.innerText = "Daily reward system will be connected to the backend.";
-    if (tg.HapticFeedback) tg.HapticFeedback.notificationOccurred("success");
-  }
-
-  function watchAd() {
-    if (typeof show_11700556 === "function") {
-      show_11700556().then(() => {
-        if (tg.HapticFeedback) tg.HapticFeedback.notificationOccurred("success");
-        tg.showAlert("Advertisement completed. Reward processing will be connected to the backend.");
-      }).catch(() => {
-        tg.showAlert("Advertisement is not available right now. Please try again later.");
-      });
-    } else {
-      tg.showAlert("Advertisement is loading. Please try again in a moment.");
-    }
-  }
-
-  function openTasks() { showPage("tasks", document.querySelectorAll(".nav-btn")[1]); }
-  function comingSoon() { tg.showAlert("This task is coming soon."); }
-
-  function showPage(page, button) {
-    document.getElementById("home").classList.add("hidden");
-    document.getElementById("tasks").classList.add("hidden");
-    document.getElementById("profile").classList.add("hidden");
-    document.getElementById(page).classList.remove("hidden");
-    document.querySelectorAll(".nav-btn").forEach(btn => btn.classList.remove("active"));
-    if (button) button.classList.add("active");
-  }
-
+  function openTasks(){showPage('tasks',document.querySelectorAll('.nav-btn')[1])}
+  function comingSoon(){tg.showAlert('This task is coming soon.')}
+  function showPage(page,button){['home','tasks','profile'].forEach(id=>document.getElementById(id).classList.add('hidden'));document.getElementById(page).classList.remove('hidden');document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));if(button)button.classList.add('active')}
   updateBalance();
 </script>
 </body>
